@@ -50,12 +50,12 @@ ACR builder service (云端构建), one rule for this repo:
 | Code source | this GitHub repository |
 | Dockerfile path | `Dockerfile` |
 | Context directory | repo root (no context files are used) |
-| Namespace/repo | `lulinw/pi-agent` |
+| Namespace/repo | `***/pi-agent` |
 | Tag rules | `latest` (+ version tag matching the pi build) |
 | Build args | `PI_PACKAGES="npm:@scope/pkg@1.2.3 git:github.com/u/r@v1"` (space-separated; empty = no baked-in extensions) |
 
 Other optional args: `BASE_IMAGE` (defaults to
-`registry.cn-hangzhou.aliyuncs.com/lulinw/pi-vanilla:latest`; same-region
+`registry.cn-hangzhou.aliyuncs.com/***/pi-vanilla:latest`; same-region
 builders can use the `registry-vpc` endpoint) and the four `*_MIRROR` args.
 
 **Ordering:** rebuild `deven` → `pi-vanilla` first when their inputs change —
@@ -70,10 +70,10 @@ docker build --build-arg PI_PACKAGES="npm:@foo/bar@1.0.0" -t pi-agent:latest .
 ## Using
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/lulinw/pi-agent:latest
+docker pull registry.cn-hangzhou.aliyuncs.com/***/pi-agent:latest
 docker run -it --rm -v "$PWD:/workspace" \
   -e ANTHROPIC_API_KEY \
-  registry.cn-hangzhou.aliyuncs.com/lulinw/pi-agent:latest
+  registry.cn-hangzhou.aliyuncs.com/***/pi-agent:latest
 ```
 
 Notes:
