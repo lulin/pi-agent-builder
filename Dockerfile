@@ -17,7 +17,7 @@
 # NOTE: this ARG must stay before FROM to be usable there.
 # Same-region builders can use the VPC endpoint for a fast internal pull:
 #   registry-vpc.cn-hangzhou.aliyuncs.com/lulinw/pi-vanilla:latest
-ARG BASE_IMAGE=registry.cn-hangzhou.aliyuncs.com/lulinw/pi-vanilla:1.0.4
+ARG BASE_IMAGE=registry.cn-hangzhou.aliyuncs.com/lulinw/pi-vanilla:1.1.0
 FROM ${BASE_IMAGE}
 
 LABEL org.opencontainers.image.title="pi-agent" \
